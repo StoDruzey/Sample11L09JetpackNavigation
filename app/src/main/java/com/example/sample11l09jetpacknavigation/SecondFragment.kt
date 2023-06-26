@@ -10,7 +10,8 @@ import com.example.sample11l09jetpacknavigation.databinding.FragmentSecondBindin
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
-    private val binding: FragmentSecondBinding get() = requireNotNull(_binding)
+    private val binding: FragmentSecondBinding
+        get() = requireNotNull(_binding)
 
     override fun onCreateView(
         inflater: LayoutInflater,

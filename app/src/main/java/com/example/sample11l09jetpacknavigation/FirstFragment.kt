@@ -4,14 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.sample11l09jetpacknavigation.databinding.FragmentFirstBinding
+import java.util.UUID
 
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
-    private val binding: FragmentFirstBinding get() = requireNotNull(_binding)
+    private val binding: FragmentFirstBinding
+        get() = requireNotNull(_binding)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,7 +30,11 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.button.setOnClickListener {
-            findNavController().navigate(R.id.to_fragment_second)
+            findNavController()
+                .navigate(
+                    R.id.to_fragment_second,
+                    bundleOf(SecondFragment.KEY_SECOND_FRAGMENT to UUID.randomUUID().toString())
+                )
         }
     }
 
